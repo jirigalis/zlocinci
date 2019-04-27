@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+	height: 100vh;
+	background-image: 
+		linear-gradient(to right top,
+			rgba(18, 23, 31, .90),
+			rgba(26, 30, 40, .90),
+			rgba(35, 38, 49, .90),
+			rgba(44, 46, 58, .90),
+			rgba(54, 54, 67, .90)),
+		url("src/assets/mountains.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
