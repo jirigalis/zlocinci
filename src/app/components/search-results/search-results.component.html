@@ -1,0 +1,22 @@
+<section class="main-wrapper">
+	<navbar></navbar>
+	<div class="content-wrapper">
+		<div class="search-results-header">
+			Výsledky hledání výrazu "{{query}}":
+		</div>
+		<div class="results">
+			<div class="results-row" *ngFor="let result of results" (click)="goToDetail(result.id)">
+				<div class="img-wrapper">
+					<img src="assets/outlaws/{{result.img}}" />
+				</div>
+				<div class="row-content">
+					<h4>{{result.name}}</h4>
+					<div class="details">
+						<p>Kód: {{result.code}}</p>
+						<p>Vzácnost: {{result.rarity}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

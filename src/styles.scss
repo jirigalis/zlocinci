@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 body {
 	height: 100vh;
 	background-image: 
@@ -10,7 +12,12 @@ body {
 		url("src/assets/mountains.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	color: #ffc800;
+}
 
+.content-wrapper {
+	padding: 10px;
 }
 

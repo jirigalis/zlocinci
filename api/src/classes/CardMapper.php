@@ -6,7 +6,7 @@ class CardMapper extends Mapper {
 
 		$cards = [];
 		while ($row = $res->fetch()) {
-			$cards[] = new Oard($row);
+			$cards[] = new Card($row);
 		}
 		return $cards;
 	}
@@ -23,7 +23,7 @@ class CardMapper extends Mapper {
 		}
 
 		if ($result) {
-			return new Oard($card->fetch());
+			return new Card($card->fetch());
 		}
 	}
 
@@ -54,6 +54,21 @@ class CardMapper extends Mapper {
 		}
 
 		return $cards;
+	}
+
+	public function search($keyword) {
+		$keyword = "%".$keyword."%";
+		$sql = "SELECT * FROM karta WHERE name like :keyword OR code like :keyword OR description like :keyword";
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute(['keyword' => $keyword]);
+		$results = [];
+
+		while ($row = $stmt->fetch()) {
+			$row["img"] = str_replace(" ", "-", strtolower($row["name"])) . ".jpg";
+			$results[] = $row;
+		}
+
+		return $results;
 	}
 
 

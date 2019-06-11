@@ -3,10 +3,19 @@
 		<img src="assets/logo.png" />
 	</div>
 	<div class="form-wrapper">
-		<form>
-			<div class="form-group input-wrapper">
-				<input type="text" class="code-input" id="code" require>
-				<label for="code">
+		<form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm">
+			<div class="form-group input-wrapper" [class.filled]="f.form.value.code != ''">
+				<input
+					type="text"
+					class="code-input"
+					id="code"
+					name="code"
+					[(ngModel)]="model.code"
+					#code="ngModel"
+					[ngClass]="{'is-invalid': f.submitted && code.invalid}"
+					autocomplete="off"
+					required>
+				<label for="code" [ngClass]="{'is-invalid': f.submitted && code.invalid}">
 					<span class="label-content">Kód nebo jméno:</span>
 				</label>
 			</div>

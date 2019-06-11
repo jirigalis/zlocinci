@@ -1,0 +1,37 @@
+.search-results-header {
+	border-bottom: 2px solid #ffc800;
+	padding-bottom: 5px;
+}
+
+.results-row {
+	padding: 10px 0;
+	border-bottom: 1px solid #ffc800;
+	display: flex;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, .2);
+	}
+
+	.img-wrapper {
+		max-width: 50px;
+
+		img {
+			max-height: 80px;
+			width: 100%;
+		}
+	}
+
+	.row-content {
+		padding: 0 5px;
+		width: 100%;
+
+		.details {
+			display: flex;
+			justify-content: space-between;
+
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
