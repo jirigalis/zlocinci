@@ -11,7 +11,7 @@ const routes: Routes = [
 		component: SearchResultsComponent
 	},
 	{
-		path: 'detail/:id',
+		path: 'card-detail/:id',
 		component: CardDetailComponent
 	},
 	{

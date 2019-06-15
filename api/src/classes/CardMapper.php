@@ -1,7 +1,7 @@
 <?php
 class CardMapper extends Mapper {
 	public function getCards() {
-		$sql = "SELECT * FROM karta";
+		$sql = "SELECT * FROM karta ORDER BY name";
 		$res = $this->db->query($sql);
 
 		$cards = [];
@@ -58,17 +58,20 @@ class CardMapper extends Mapper {
 
 	public function search($keyword) {
 		$keyword = "%".$keyword."%";
-		$sql = "SELECT * FROM karta WHERE name like :keyword OR code like :keyword OR description like :keyword";
+		$sql = "SELECT * FROM karta WHERE name like :keyword OR code like :keyword";
 		$stmt = $this->db->prepare($sql);
 		$stmt->execute(['keyword' => $keyword]);
 		$results = [];
 
 		while ($row = $stmt->fetch()) {
-			$row["img"] = str_replace(" ", "-", strtolower($row["name"])) . ".jpg";
-			$results[] = $row;
+			$results[] = new Card($row);
 		}
 
 		return $results;
+	}
+
+	public function insertValues() {
+		return null;
 	}
 
 

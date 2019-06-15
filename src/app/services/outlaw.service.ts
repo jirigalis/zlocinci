@@ -14,16 +14,25 @@ const httpOptions = {
 })
 export class OutlawService {
 
-  constructor(private http: HttpClient) { }
+	constructor(private http: HttpClient) { }
 
-  private url = 'http://localhost/zlocinci-api';
+	private url = 'http://localhost/zlocinci-api';
 
-  search(keyword: String) {
-  	if(!keyword.trim()) {
-  		return of([]);
-  	}
-  	let url = `${this.url}/search?term=${keyword}`;
-  	return this.http.get(url);
-  }
+	getAll() {
+		return this.http.get(`${this.url}/all`);
+	}
+
+	search(keyword: String) {
+		if(!keyword.trim()) {
+			return of([]);
+		}
+		let url = `${this.url}/search?term=${keyword}`;
+		return this.http.get(url);
+	}
+
+	getCardById(cardId) {
+		let url = `${this.url}/${cardId}`;
+		return this.http.get(url);
+	}
 
 }

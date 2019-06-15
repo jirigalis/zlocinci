@@ -1,9 +1,17 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="#">Brand</a>
+	<div class="brand">
+		<a class="navbar-brand" href="#">{{brand}}</a>
+	</div>
 
-	<button class="navbar-toggler" type="button">
-		<a class="text-white" routerLink="/"><fa-icon [icon]="faHome"></fa-icon></a>
-	</button>
+	<div class="buttons">
+		<button class="navbar-toggler mx-2" type="button">
+			<a class="text-white" href="javascript:void(0)" (click)="goBack()"><fa-icon [icon]="faArrowLeft"></fa-icon></a>
+		</button>
+
+		<button class="navbar-toggler" type="button">
+			<a class="text-white" routerLink="/"><fa-icon [icon]="faHome"></fa-icon></a>
+		</button>
+	</div>
 
 	<div class="collapse navbar-collapse" [ngClass]="{'show': navbarOpen}">
 		<ul class="navbar-nav mr-auto">

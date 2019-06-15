@@ -1,0 +1,39 @@
+.photo {
+	display: flex;
+	justify-content: center;
+	max-height: 300px;
+	margin-bottom: 15px;
+
+	img {
+		align-self: center;
+		max-height: 300px;
+		max-width: 100%;
+	}
+}
+
+.name {
+	text-align: center;
+	p {
+		font-size: 1.7em;
+	}
+}
+
+.stats {
+	display: flex;
+	margin: 0 -5px;
+	.stats-item {
+		padding: 10px 5px;
+		border: 1px solid #ffc800;
+		width: 50%;
+		margin: 5px;
+		background-color: rgba(0,0,0,.3);
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.description {
+	text-align: justify;
+}

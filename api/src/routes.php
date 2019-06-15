@@ -13,6 +13,12 @@ return function (App $app) {
 	    return $response->withJson($cards);
 	});
 
+    $app->get('/insert', function (Request $request, Response $response) {
+	   	$mapper = new CardMapper($this->db);
+	    $cards = $mapper->insertValues();
+	    return $response->withJson($cards);
+	});
+
 	$app->get('/search', function (Request $request, Response $response, $args) {
 		$params = $request->getQueryParams();
 		$mapper = new CardMapper($this->db);

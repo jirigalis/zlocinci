@@ -1,8 +1,8 @@
 <section class="main-wrapper">
-	<navbar></navbar>
+	<navbar [brand]="'Vyhledávání'"></navbar>
 	<div class="content-wrapper">
 		<div class="search-results-header">
-			Výsledky hledání výrazu "{{query}}":
+			<span *ngIf="query !== ''">Počet výsledků hledání výrazu "{{query}}": {{results.length}}</span>
 		</div>
 		<div class="results">
 			<div class="results-row" *ngFor="let result of results" (click)="goToDetail(result.id)">
