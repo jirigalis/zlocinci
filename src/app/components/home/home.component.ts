@@ -24,4 +24,8 @@ export class HomeComponent implements OnInit {
 		this.router.navigate(["search-results"], {queryParams: {query: keyword}});
 	}
 
+	showList() {
+		this.router.navigate(["search-results"]);
+	}
+
 }

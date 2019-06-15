@@ -11,8 +11,8 @@ import { OutlawService } from '../../services/outlaw.service'
 export class SearchResultsComponent implements OnInit {
 	
 	private sub;
-	public results;
-	query;
+	public results: any = [];
+	query = "";
 
 	constructor(
 		private outlawService: OutlawService,
@@ -24,11 +24,18 @@ export class SearchResultsComponent implements OnInit {
 		this.sub = this.route
 			.queryParams
 			.subscribe(params => {
-				this.query = params.query;
-				this.outlawService.search(params.query)
-					.subscribe(res => {
-						this.results = res;
-					})
+				if (Object.entries(params).length === 0) {
+					this.outlawService.getAll()
+						.subscribe(res => {
+							this.results = res;
+						})
+				} else {
+					this.query = params.query;
+					this.outlawService.search(params.query)
+						.subscribe(res => {
+							this.results = res;
+						})
+				}
 			})
 	}
 
@@ -37,7 +44,7 @@ export class SearchResultsComponent implements OnInit {
 	}
 
 	goToDetail(id) {
-		this.router.navigate(["detail", {id: id}]);
+		this.router.navigate(["card-detail", id]);
 	}
 
 }
