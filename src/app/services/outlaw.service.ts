@@ -16,6 +16,7 @@ export class OutlawService {
 
 	constructor(private http: HttpClient) { }
 
+	//private url = '/api/public';
 	private url = 'http://localhost/zlocinci-api';
 
 	getAll() {

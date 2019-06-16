@@ -7,6 +7,8 @@ class Card implements JsonSerializable{
 	private $type;
 	private $description;
 	private $img;
+	private $gangName;
+	private $cardType;
 
 	public function __construct(array $data) {
 		if (isset($data['id'])) {
@@ -18,9 +20,12 @@ class Card implements JsonSerializable{
 		$this->rarity = $data['rarity'];
 		$this->type = $data['type'];
 		$this->description = $data['description'];
+		$this->gangName = $data['gang_name'];
+		$this->cardType = $data['card_type'];
 
 		//create img name
 		$img = str_replace("\"", "", $data["name"]);
+		$img = str_replace("'", "-", $img);
 		$this->img = str_replace(" ", "-", strtolower($img)) . ".jpg";
 	}
 
@@ -52,6 +57,14 @@ class Card implements JsonSerializable{
 		return $this->img;
 	}
 
+	public function getGangName() {
+		return $this->gangName;
+	}
+
+	public function getCardType() {
+		return $this->cardType;
+	}
+
     public function jsonSerialize()
     {
         return 
@@ -62,7 +75,9 @@ class Card implements JsonSerializable{
             'rarity' => $this->getRarity(),
             'type' => $this->getType(),
             'description' => $this->getDescription(),
-            'img' => $this->getImg()
+            'img' => $this->getImg(),
+            'gangName' => $this->getGangName(),
+            'cardType' => $this->getCardType()
         ];
     }
 }
